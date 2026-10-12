@@ -41,12 +41,15 @@ class CustomObject:
 
         """ Deserializes with pickle and creates new CustomObject """
 
-        with open(filename, "rb") as f:
-            data = pickle.load(f)
-        if not isinstance(data, dict):
+        try:
+            with open(filename, "rb") as f:
+                data = pickle.load(f)
+            if not isinstance(data, dict):
+                return None
+            if isinstance(data["Name"], str):
+                if isinstance(data["Age"], int):
+                    if isinstance(data["Is Student"], bool):
+                        return cls(data["Name"], data["Age"], data["Is Student"])
             return None
-        if isinstance(data["Name"], str):
-            if isinstance(data["Age"], int):
-                if isinstance(data["Is Student"], bool):
-                    return cls(data["Name"], data["Age"], data["Is Student"])
-        return None
+        except (pickle.UnpicklingError):
+            return None
