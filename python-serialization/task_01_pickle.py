@@ -43,6 +43,4 @@ class CustomObject:
 
         with open(filename, "rb") as f:
             data = pickle.load(f)
-        if data["Name"] and data["Age"] and data["Is Student"]:
-            return cls(data["Name"], data["Age"], data["Is Student"])
-        return None
+        return cls(data["Name"], data["Age"], data["Is Student"])
