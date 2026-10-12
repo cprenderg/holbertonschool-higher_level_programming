@@ -9,7 +9,7 @@ class CustomObject:
 
     """ CustomObject class """
 
-    def __init__(self, name="", age=0, is_student=True):
+    def __init__(self, name, age, is_student):
 
         """ Initialises with name, age and is_student """
 
@@ -43,4 +43,10 @@ class CustomObject:
 
         with open(filename, "rb") as f:
             data = pickle.load(f)
-        return cls(data["Name"], data["Age"], data["Is Student"])
+        if not isinstance(data, dict):
+            return None
+        if isinstance(data["Name"], str):
+            if isinstance(data["Age"], int):
+                if isinstance(data["Is Student"], bool):
+                    return cls(data["Name"], data["Age"], data["Is Student"])
+        return None
