@@ -19,4 +19,4 @@ def load_and_deserialize(filename):
 
     with open(filename, "r") as f:
         loaded_data = json.load(f)
-    print(loaded_data)
+    return loaded_data
