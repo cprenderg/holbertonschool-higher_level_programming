@@ -49,7 +49,19 @@ class CustomObject:
             if isinstance(data["Name"], str):
                 if isinstance(data["Age"], int):
                     if isinstance(data["Is Student"], bool):
-                        return cls(data["Name"], data["Age"], data["Is Student"])
+                        return cls(
+                            data["Name"],
+                            data["Age"],
+                            data["Is Student"])
             return None
-        except (pickle.UnpicklingError):
+        except (
+            OSError,
+            pickle.UnpicklingError,
+            EOFError,
+            AttributeError,
+            ImportError,
+            IndexError,
+            TypeError,
+            ValueError,
+        ):
             return None
