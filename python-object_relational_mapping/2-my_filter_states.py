@@ -14,6 +14,7 @@ if __name__ == "__main__":
     MY_USER = sys.argv[1]
     MY_PASS = sys.argv[2]
     MY_DB = sys.argv[3]
+    USER_INPUT = sys.argv[4]
     db = MySQLdb.connect(
         host=MY_HOST,
         port=MY_PORT,
@@ -25,7 +26,7 @@ if __name__ == "__main__":
 
     query = (
         "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
-        .format(sys.argv[4])
+        .format(USER_INPUT)
         )
 
     cursor.execute(query)
