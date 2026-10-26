@@ -31,7 +31,7 @@ if __name__ == "__main__":
     cursor.execute(query.format(USER_INPUT))
 
     query_rows = cursor.fetchall()
-    if not query_rows:
+    if query_rows is None:
         print()
     else:
         for row in query_rows:
