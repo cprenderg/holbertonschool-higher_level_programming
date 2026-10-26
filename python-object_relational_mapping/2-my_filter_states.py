@@ -25,17 +25,20 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     query = (
-        "SELECT * FROM states WHERE name = '{}' ORDER BY states.id ASC"
+        """
+        SELECT *
+        FROM states
+        WHERE name = '{}'
+        ORDER BY states.id ASC
+        """
         )
 
     cursor.execute(query.format(USER_INPUT))
 
     query_rows = cursor.fetchall()
-    if query_rows is None:
-        print()
-    else:
-        for row in query_rows:
-            print(row)
+
+    for row in query_rows:
+        print(row)
 
     cursor.close()
     db.close()
