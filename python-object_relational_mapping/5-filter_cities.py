@@ -29,7 +29,7 @@ if __name__ == "__main__":
         """
         SELECT cities.name
         FROM cities
-        LEFT JOIN states
+        JOIN states
         ON cities.state_id = states.id
         WHERE states.name = %s
         ORDER BY cities.id ASC
@@ -38,15 +38,7 @@ if __name__ == "__main__":
     cursor.execute(query, (USER_INPUT,))
 
     query_rows = cursor.fetchall()
-    length = len(query_rows)
-    i = 0
-    for row in query_rows:
-        print(row[0], end="")
-        i += 1
-        if i < length:
-            print(", ", end="")
-        else:
-            print()
+    print(", ".join([row[0] for row in query_rows]))
 
     cursor.close()
     db.close()
