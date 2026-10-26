@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
-import MySQLdb
-import sys
-
 """
 Lists all states from db
 """
+
+import MySQLdb
+import sys
 
 
 if __name__ == "__main__":
