@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
-import MySQLdb
-import sys
-
 """
 Filters list of states starting with N
 """
+
+import MySQLdb
+import sys
 
 
 if __name__ == "__main__":
