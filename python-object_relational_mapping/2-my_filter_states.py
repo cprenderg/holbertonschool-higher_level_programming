@@ -26,10 +26,9 @@ if __name__ == "__main__":
 
     query = (
         "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
-        .format(USER_INPUT)
         )
 
-    cursor.execute(query)
+    cursor.execute(query.format(USER_INPUT))
 
     query_rows = cursor.fetchall()
     for row in query_rows:
