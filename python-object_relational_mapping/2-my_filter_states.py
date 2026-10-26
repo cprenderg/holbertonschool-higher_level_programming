@@ -22,9 +22,13 @@ if __name__ == "__main__":
         db=MY_DB
         )
     cursor = db.cursor()
-    cursor.execute(
+
+    query = (
         "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
-        .format(sys.argv[4]))
+        .format(sys.argv[4])
+        )
+
+    cursor.execute(query)
 
     query_rows = cursor.fetchall()
     for row in query_rows:
