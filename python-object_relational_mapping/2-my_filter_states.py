@@ -31,8 +31,11 @@ if __name__ == "__main__":
     cursor.execute(query.format(USER_INPUT))
 
     query_rows = cursor.fetchall()
-    for row in query_rows:
-        print(row)
+    if not query_rows:
+        print()
+    else:
+        for row in query_rows:
+            print(row)
 
     cursor.close()
     db.close()
