@@ -31,6 +31,12 @@ class CustomHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             self.wfile.write(json.dumps(info_payload).encode('utf-8'))
+        
+        elif self.path == '/status':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/plain; charset=utf-8')
+            self.end_headers()
+            self.wfile.write("OK".encode('utf-8'))
 
         elif self.path == '/':
             self.send_response(200)
@@ -38,7 +44,7 @@ class CustomHTTPRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
 
             # Text response
-            self.wfile.write("Hello, this is a simple API!\n".encode('utf-8'))
+            self.wfile.write("Hello, this is a simple API!".encode('utf-8'))
         
         else:
             self.send_response(404)
