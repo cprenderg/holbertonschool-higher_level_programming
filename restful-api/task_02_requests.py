@@ -5,6 +5,7 @@ Praciting API calls
 """
 
 import requests
+import csv
 
 
 def fetch_and_print_posts():
@@ -42,14 +43,11 @@ def fetch_and_save_posts():
     
     columns = ["id", "title", "body"]
 
-    try:
-        with open ("posts.csv", mode="w", newline="", encoding="utf-8") as csv_file:
-            writer = csv.DictWriter(csv_file, fieldnames=columns)
 
-            wrtier.writerheader()
-            writer.writerows(data_list)
+    with open ("posts.csv", mode="w", newline="", encoding="utf-8") as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=columns)
 
-        return True
-    except:
-        return False
+        writer.writeheader()
+        writer.writerows(data_list)
+
 
