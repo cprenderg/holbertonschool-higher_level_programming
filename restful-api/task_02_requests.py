@@ -12,7 +12,7 @@ def fetch_and_print_posts():
     URL = 'https://jsonplaceholder.typicode.com/posts'
     r = requests.get(URL)
 
-    print(r.status_code)
+    print(f"Status Code: {r.status_code}")
 
     if r.status_code == 200:
         try:
