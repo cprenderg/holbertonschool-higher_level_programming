@@ -36,7 +36,7 @@ def basic_protected():
 
 @app.route("/login", methods=["POST"])
 def login():
-    data = request.get_json()
+    data = request.get_json(silent=True) or {}
     username = data.get("username")
     password = data.get("password")
     if username not in users:
@@ -63,6 +63,21 @@ def admin_only():
         return jsonify({"error": "Admin access required"}), 403
     
     return "Admin Access: Granted"
+
+@jwt.unauthorized_loader
+def handle_unauthorized_error(err):
+    return jsonify({"error": "Missing or invalid token"}), 401
+
+
+@jwt.invalid_token_loader
+def handle_invalid_token_error(err):
+    return jsonify({"error": "Invalid token"}), 401
+
+
+@jwt.expired_token_loader
+def handle_expired_token_error(err_header, err_payload):
+    return jsonify({"error": "Token has expired"}), 401
+
 
 if __name__ == "__main__":
     app.run(debug=True)
