@@ -6,7 +6,7 @@ if (argCount === 2) {
   console.log('No argument');
 }
 
-if (argCount == 3) {
+if (argCount === 3) {
   console.log('Argument found');
 }
 
