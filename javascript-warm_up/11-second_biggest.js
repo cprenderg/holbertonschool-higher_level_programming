@@ -13,9 +13,9 @@ if (argCount === 1) {
 if (arg1 !== undefined && arg1.trim() !== '' && !Number.isNaN(number1)) {
   let i = 2;
   while (i < argCount + 2) {
-    if (process.argv[i] > max) {
+    if (Number(process.argv[i]) > max) {
       second = max;
-      max = process.argv[i];
+      max = Number(process.argv[i]);
     }
     i++;
   }
