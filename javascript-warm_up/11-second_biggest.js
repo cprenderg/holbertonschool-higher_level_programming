@@ -16,6 +16,8 @@ if (arg1 !== undefined && arg1.trim() !== '' && !Number.isNaN(number1)) {
     if (Number(process.argv[i]) > max) {
       second = max;
       max = Number(process.argv[i]);
+    } else if (Number(process.argv[i] < max && Number(process.argv[i] > second))) {
+      second = Number(process.argv[i]);
     }
     i++;
   }
