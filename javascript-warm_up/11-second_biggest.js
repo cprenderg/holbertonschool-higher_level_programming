@@ -7,11 +7,8 @@ let max = 0;
 let second = 0;
 
 if (argCount === 1) {
-  console.log('0');
-  return;
-}
-
-if (arg1 !== undefined && arg1.trim() !== '' && !Number.isNaN(number1)) {
+  second = 0;
+} else if (arg1 !== undefined && arg1.trim() !== '' && !Number.isNaN(number1)) {
   let i = 2;
   while (i < argCount + 2) {
     if (Number(process.argv[i]) > max) {
