@@ -8,6 +8,7 @@ let second = 0;
 
 if (argCount === 1) {
   console.log('0');
+  return;
 }
 
 if (arg1 !== undefined && arg1.trim() !== '' && !Number.isNaN(number1)) {
@@ -21,8 +22,6 @@ if (arg1 !== undefined && arg1.trim() !== '' && !Number.isNaN(number1)) {
     }
     i++;
   }
-} else {
-  console.log('0');
 }
 
 console.log(second);
