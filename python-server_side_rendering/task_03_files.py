@@ -37,3 +37,6 @@ def products():
         products=products,
         error_message=error_message
     )
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
